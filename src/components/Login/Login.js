@@ -2,8 +2,11 @@ import './login.css'
 import React from 'react';
 import { useFormik } from 'formik';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = ({ onCheckUser }) => {
+    const navigate = useNavigate();
+
   const validate = (values) => {
     const errors = {};
 
@@ -32,6 +35,7 @@ const Login = ({ onCheckUser }) => {
     validate,
     onSubmit: (values) => {
       onCheckUser(values);
+      navigate('/');
     },
   });
 

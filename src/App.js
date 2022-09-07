@@ -54,7 +54,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login onCheckUser={isUserHasAcc} />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<Signup setUserSignup={setUsers} />} />
       </Routes>
     </BrowserRouter>
   );

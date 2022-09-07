@@ -12,3 +12,7 @@
     font-size: 12px;
     margin-bottom: 5px;
 }
+
+.wrongPassword {
+    background-color: red;
+}

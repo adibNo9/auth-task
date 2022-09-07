@@ -1,8 +1,11 @@
 import './signup.css';
 import React from 'react';
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = ({ setUserSignup }) => {
+  const navigate = useNavigate();
+
   const validate = (values) => {
     const errors = {};
 
@@ -46,6 +49,9 @@ const Signup = () => {
       })
       .then((res) => res.json())
       .then((data) => console.log(data));
+
+      navigate('/login');
+      setUserSignup((prevUsers) => [...prevUsers, values]);
     }
   })
 
