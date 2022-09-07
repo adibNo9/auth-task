@@ -9,6 +9,30 @@ import Home from "./components/Home/Home";
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+
+  const logOutHandler = () => {
+    setIsUserLoggedIn(false);
+  }
+
+  const isUserHasAcc = (values) => {
+    users.find(user => {
+      if (user.email === values.email) {
+         console.log("you are our user, email is true");
+        if (user.password === values.password) {
+          console.log("password is true");
+          setIsUserLoggedIn(true);
+          return isUserLoggedIn;
+        } else {
+          console.log("password false")
+          return false;
+        }
+      } else {
+        console.log("he is not user")
+        return false;
+      }
+    })
+  }
 
   useEffect(() => {
       const getUsers = async () => {
@@ -26,10 +50,10 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar isUserLoggedIn={isUserLoggedIn} onLogout={logOutHandler} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login onCheckUser={isUserHasAcc} />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>

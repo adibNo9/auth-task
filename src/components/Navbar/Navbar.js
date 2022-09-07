@@ -2,8 +2,7 @@ import './navbar.css'
 ;import React from 'react'
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
-    const login = false;
+const Navbar = ({ isUserLoggedIn, onLogout }) => {
 
   return (
     <div className="navbarContainer">
@@ -17,15 +16,15 @@ const Navbar = () => {
         <Link to="/friends" className="item">
           Friends
         </Link>
-        {login && (
+        {isUserLoggedIn && (
           <div className="right menu">
             {' '}
-            <Link to="/" className="ui item">
+            <Link onClick={() => onLogout()} to="/" className="ui item">
               Logout
             </Link>{' '}
           </div>
         )}
-        {!login && (
+        {!isUserLoggedIn && (
           <div className="right menu ">
             <Link to="/login" className="ui item">
               Login
@@ -38,6 +37,6 @@ const Navbar = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;
