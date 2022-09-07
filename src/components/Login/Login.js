@@ -3,6 +3,8 @@ import React from 'react';
 import { useFormik } from 'formik';
 
 const Login = () => {
+    
+
     const validate = values => {
         const errors = {}
 
@@ -30,18 +32,24 @@ const Login = () => {
         },
         validate,
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2))
+            fetch('http://localhost:3001/users', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(values),
+            })
+              .then((res) => res.json())
+              .then((data) => console.log(data));
         }
     })
 
   return (
     <div className='ui segment formContainer'>
         <div className='cardHeader'>
-            <h1 class="ui header">Login</h1>
+            <h1 className="ui header">Login</h1>
             <p>set your location in the app and enjoy...</p>
         </div>
-        <form onSubmit={formik.handleSubmit} class="ui form">
-            <div class="field">
+        <form onSubmit={formik.handleSubmit} className="ui form">
+            <div className="field">
                 <label htmlFor='email'>E-Mail</label>
                 <input 
                 onChange={formik.handleChange} 
@@ -53,7 +61,7 @@ const Login = () => {
                 placeholder="Email Address" />
                 {formik.touched.email && formik.errors.email && <div className='error'>{formik.errors.email}</div>}
             </div>
-            <div class="field">
+            <div className="field">
                 <label htmlFor='password'>Password</label>
                 <input
                  onChange={formik.handleChange} 
@@ -65,12 +73,12 @@ const Login = () => {
                  placeholder="Password" />
                 {formik.touched.password && formik.errors.password && <div className='error'>{formik.errors.password}</div>}
             </div>
-            <div class="field">
-                <div class="ui">
+            <div className="field">
+                <div className="ui">
                     <p>Not registered yet? <a href='/'>Create an Account</a></p>
                 </div>
             </div>
-            <button class="ui button" type="submit">LOGIN</button>
+            <button className="ui button" type="submit">LOGIN</button>
         </form>
     </div>
   )

@@ -4,18 +4,18 @@ import './navbar.css'
 const Navbar = () => {
   return (
     <div className='navbarContainer'>
-        <div class="ui secondary menu">
-            <a href='/' class="active item">
+        <div className="ui secondary menu">
+            <a href='/' className="active item">
                 Home
             </a>
-            <a href='/' class="item">
+            <a href='/' className="item">
                 Messages
             </a>
-            <a href='/' class="item">
+            <a href='/' className="item">
                 Friends
             </a>
-            <div class="right menu">
-                <a href='/' class="ui item">
+            <div className="right menu">
+                <a href='/' className="ui item">
                 Logout
                 </a>
             </div>
