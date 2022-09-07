@@ -32,7 +32,7 @@ const Login = () => {
         },
         validate,
         onSubmit: values => {
-            fetch('http://localhost:3001/users', {
+            fetch('http://localhost:3001/login', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(values),

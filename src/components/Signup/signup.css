@@ -1,0 +1,23 @@
+.formContainer {
+  width: 350px;
+  margin: 15vh auto !important;
+}
+
+.cardHeader {
+  margin: 20px 0 30px 0;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.termParagraph {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.termLink {
+  color: #4183c4;
+}
