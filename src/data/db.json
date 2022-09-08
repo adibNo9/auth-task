@@ -1,18 +1,4 @@
 {
-  "users": [
-    {
-      "email": "test@test.com",
-      "password": "123456789",
-      "id": 3
-    },
-    {
-      "username": "adib",
-      "email": "adib.mokhtari@gmail.com",
-      "password": "12345678",
-      "id": 4
-    }
-  ],
-  "posts": [],
   "features": [
     {
       "type": "Feature",
@@ -23,7 +9,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [35.699736, 51.338061]
+        "coordinates": [35.700024, 51.336796]
       }
     },
     {
@@ -31,7 +17,7 @@
       "properties": {
         "PARK_ID": 1219,
         "NAME": "Mehrabad Airport",
-        "DESCRIPTIO": "Mehrabad"
+        "DESCRIPTIO": "Mehrabad Airport is great."
       },
       "geometry": {
         "type": "Point",

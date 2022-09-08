@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+import './app.css';
 
 import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
 import Signup from "./components/Signup/Signup";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
+import SetLocation from './components/SetLocation/SetLocation';
 
 
 function App() {
@@ -45,7 +47,6 @@ function App() {
     getUsers();
   }, []);
 
-  console.log(users)
 
 
   return (
@@ -55,6 +56,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login onCheckUser={isUserHasAcc} />} />
         <Route path="/signup" element={<Signup setUserSignup={setUsers} />} />
+        <Route path="/set-location" element={<SetLocation />} />
       </Routes>
     </BrowserRouter>
   );

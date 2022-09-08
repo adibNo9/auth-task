@@ -1,0 +1,9 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-location {
+  margin: 30px 0;
+}

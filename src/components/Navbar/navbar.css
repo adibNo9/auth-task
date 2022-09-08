@@ -1,4 +1,19 @@
 .navbarContainer {
     padding: 0 10%;
-    background-color: lightblue;
+    background-color: rgb(0, 48, 65);
+    height: 10vh;
+}
+
+.navbarContainer h1.ui.header, .navbarContainer .ui.secondary.menu .item {
+    color: #fff;
+    transition: all 0.3s ease-out;
+}
+
+.navbarContainer .ui.secondary.menu .item:hover , .navbarContainer h1.ui.header:hover {
+    color: rgba(255, 255, 255, 0.562);
+    transition: all 0.3s ease-out;
+}
+
+.navbarContainer .ui.secondary.menu .item {
+    font-size: 18px;
 }
