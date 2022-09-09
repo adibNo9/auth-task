@@ -1,70 +1,62 @@
-import React, {
-  useState,
-  useMemo,
-  useRef,
-  useCallback,
-} from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { useNavigate } from 'react-router-dom';
-import './setLocation.css';
+import React, { useState, useMemo, useRef, useCallback } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { useNavigate } from "react-router-dom";
+import "./setLocation.css";
 
 const center = {
   lat: 35.699736,
   lng: 51.338061,
-}; 
+};
 
-const SetLocation = () => {
-     const [draggable, setDraggable] = useState(false);
-     const [position, setPosition] = useState(center);
-     const markerRef = useRef(null);
-     const [formData, setFormData] = useState({
-      fullName: '',
-      address: '',
-      phoneNumber: '',
-      description: '',
-      lat: undefined,
-      lng: undefined
-     });
-     const navigate = useNavigate();
-   
-     const submitHandler = (e) => {
-        e.preventDefault();
+const SetLocation = ({ onAddNewPost }) => {
+  const [draggable, setDraggable] = useState(false);
+  const [position, setPosition] = useState(center);
+  const markerRef = useRef(null);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    address: "",
+    phoneNumber: "",
+    description: "",
+    lat: undefined,
+    lng: undefined,
+  });
+  const navigate = useNavigate();
 
-        fetch("http://localhost:3001/posts", {
-          method: "POST",
-          headers: {
-            "Content-Type": "Application/json",
-          },
-          body: JSON.stringify(formData),
-        })
-          .then((res) => res.json())
-          .then((data) => console.log(data));
+  const submitHandler = (e) => {
+    e.preventDefault();
 
-        navigate('/');
-     }
+    fetch("http://localhost:3001/posts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify(formData),
+    }).then((res) => res.json());
 
-     const eventHandlers = useMemo(
-       () => ({
-         dragend() {
-           const marker = markerRef.current;
-           if (marker != null) {
-             setPosition(marker.getLatLng());
-            setFormData((prevState) => ({
-              ...prevState,
-              lat: marker._latlng.lat,
-              lng: marker._latlng.lng,
-            }));
-             console.log(marker._latlng.lat)
-           }
-         },
-       }),
-       []
-     );
-     const toggleDraggable = useCallback(() => {
-       setDraggable((d) => !d);
-     }, []);
+    onAddNewPost(formData);
 
-     console.log(position);
+    navigate("/");
+  };
+
+  const eventHandlers = useMemo(
+    () => ({
+      dragend() {
+        const marker = markerRef.current;
+        if (marker != null) {
+          setPosition(marker.getLatLng());
+          setFormData((prevState) => ({
+            ...prevState,
+            lat: marker._latlng.lat,
+            lng: marker._latlng.lng,
+          }));
+        }
+      },
+    }),
+    []
+  );
+  const toggleDraggable = useCallback(() => {
+    setDraggable((d) => !d);
+  }, []);
 
   return (
     <div className="location-container">
@@ -157,30 +149,6 @@ const SetLocation = () => {
                 placeholder="Phone Number"
               />
             </div>
-            {/* <div className="field unvisible-field">
-              <label htmlFor="lat">Latitiude</label>
-              <input
-                value={formData.lat}
-                required
-                disabled
-                type="number"
-                name="lat"
-                id="lat"
-                placeholder="latitiude"
-              />
-            </div>
-            <div className="field unvisible-field">
-              <label htmlFor="lng">Longitude</label>
-              <input
-                value={formData.lng}
-                required
-                disabled
-                type="number"
-                name="lng"
-                id="lng"
-                placeholder="Longitude"
-              />
-            </div> */}
             <div className="field">
               <label htmlFor="description">Description</label>
               <textarea
@@ -216,6 +184,6 @@ const SetLocation = () => {
       </div>
     </div>
   );
-}
+};
 
 export default SetLocation;
