@@ -64,30 +64,14 @@
       "id": 5
     }
   ],
-  "features": [
+  "comments": [
     {
-      "type": "Feature",
-      "properties": {
-        "PARK_ID": 960,
-        "NAME": "Azadi Tower",
-        "DESCRIPTIO": "Azadi Tower is Beatifull."
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [35.699736, 51.338061]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "PARK_ID": 1219,
-        "NAME": "Mehrabad Airport",
-        "DESCRIPTIO": "Mehrabad"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [35.68642, 51.301167]
-      }
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
     }
-  ]
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }

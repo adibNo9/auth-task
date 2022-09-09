@@ -2,6 +2,7 @@ import "./app.css";
 import React, { Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
+import PageSkeleton from "./components/PageSkeleton/PageSkeleton";
 
 const SinglePost = React.lazy(() => import("./pages/SinglePost/SinglePost"));
 const Home = React.lazy(() => import("./pages/Home/Home"));
@@ -68,11 +69,18 @@ function App() {
     <BrowserRouter>
       <Navbar isUserLoggedIn={isUserLoggedIn} onLogout={logOutHandler} />
       <Routes>
-        <Route path="/" element={<Home posts={posts} />} />
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<PageSkeleton />}>
+              <Home posts={posts} />
+            </Suspense>
+          }
+        />
         <Route
           path="/login"
           element={
-            <Suspense fallback={<div>...isLoading</div>}>
+            <Suspense fallback={<PageSkeleton />}>
               <Login onCheckUser={isUserHasAcc} />
             </Suspense>
           }
@@ -80,7 +88,7 @@ function App() {
         <Route
           path="/signup"
           element={
-            <Suspense fallback={<div>...isLoading</div>}>
+            <Suspense fallback={<PageSkeleton />}>
               <Signup setUserSignup={setUsers} />
             </Suspense>
           }
@@ -88,7 +96,7 @@ function App() {
         <Route
           path="/set-location"
           element={
-            <Suspense fallback={<div>...isLoading</div>}>
+            <Suspense fallback={<PageSkeleton />}>
               <SetLocation onAddNewPost={addNewPostHandler} />
             </Suspense>
           }
@@ -96,7 +104,7 @@ function App() {
         <Route
           path=":postId"
           element={
-            <Suspense fallback={<div>...isLoading</div>}>
+            <Suspense fallback={<PageSkeleton />}>
               <SinglePost />
             </Suspense>
           }

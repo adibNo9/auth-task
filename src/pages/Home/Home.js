@@ -18,7 +18,8 @@ const Home = ({ posts }) => {
         </Link>
       </div>
       <div className="posts-Container">
-        {!posts && [1, 2, 3, 4, 5, 6].map((post) => <Skeleton key={post} />)}
+        {posts.length === 0 &&
+          [1, 2, 3, 4, 5, 6].map((post) => <Skeleton key={post} />)}
         {posts &&
           posts.map((post) => <Post key={post.id.toString()} post={post} />)}
       </div>
