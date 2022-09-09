@@ -5,6 +5,7 @@ import React, {
   useCallback,
 } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { useNavigate } from 'react-router-dom';
 import './setLocation.css';
 
 const center = {
@@ -16,13 +17,44 @@ const SetLocation = () => {
      const [draggable, setDraggable] = useState(false);
      const [position, setPosition] = useState(center);
      const markerRef = useRef(null);
-     console.log(position);
+     const [formData, setFormData] = useState({
+      fullName: '',
+      address: '',
+      phoneNumber: '',
+      description: '',
+      lat: undefined,
+      lng: undefined
+     });
+     const navigate = useNavigate();
+   
+     const submitHandler = (e) => {
+        e.preventDefault();
+
+        fetch("http://localhost:3001/posts", {
+          method: "POST",
+          headers: {
+            "Content-Type": "Application/json",
+          },
+          body: JSON.stringify(formData),
+        })
+          .then((res) => res.json())
+          .then((data) => console.log(data));
+
+        navigate('/');
+     }
+
      const eventHandlers = useMemo(
        () => ({
          dragend() {
            const marker = markerRef.current;
            if (marker != null) {
              setPosition(marker.getLatLng());
+            setFormData((prevState) => ({
+              ...prevState,
+              lat: marker._latlng.lat,
+              lng: marker._latlng.lng,
+            }));
+             console.log(marker._latlng.lat)
            }
          },
        }),
@@ -31,6 +63,8 @@ const SetLocation = () => {
      const toggleDraggable = useCallback(() => {
        setDraggable((d) => !d);
      }, []);
+
+     console.log(position);
 
   return (
     <div className="location-container">
@@ -62,38 +96,121 @@ const SetLocation = () => {
               <Popup minWidth={90}>
                 <span onClick={toggleDraggable}>
                   {draggable
-                    ? 'Marker is draggable'
-                    : 'Click here to make marker draggable'}
+                    ? "Marker is draggable"
+                    : "Click here to make marker draggable"}
                 </span>
               </Popup>
             </Marker>
           </MapContainer>
         </div>
         <div className="form-container">
-          <form className="ui form">
-            <h4 class="ui dividing header">Your Information</h4>
-            <p>NOTICE: First select your location in the map.</p>
+          <form onSubmit={submitHandler} className="ui form">
+            <h4 className="ui dividing header">Your Information</h4>
             <div className="field">
-              <label>Full Name</label>
-              <input />
+              <label htmlFor="fullName">Full Name</label>
+              <input
+                onChange={(e) =>
+                  setFormData((prevState) => ({
+                    ...prevState,
+                    fullName: e.target.value,
+                  }))
+                }
+                value={formData.fullName}
+                required
+                type="text"
+                name="fullName"
+                id="fullName"
+                placeholder="Full Name"
+              />
             </div>
             <div className="field">
-              <label>Address</label>
-              <input />
+              <label htmlFor="address">Address</label>
+              <input
+                onChange={(e) =>
+                  setFormData((prevState) => ({
+                    ...prevState,
+                    address: e.target.value,
+                  }))
+                }
+                value={formData.address}
+                required
+                type="text"
+                name="address"
+                id="address"
+                placeholder="Address"
+              />
             </div>
             <div className="field">
-              <label>City</label>
-              <input />
+              <label htmlFor="phoneNumber">Phone Number</label>
+              <input
+                onChange={(e) =>
+                  setFormData((prevState) => ({
+                    ...prevState,
+                    phoneNumber: e.target.value,
+                  }))
+                }
+                value={formData.phoneNumber}
+                required
+                type="tel"
+                name="phoneNumber"
+                id="phoneNumber"
+                placeholder="Phone Number"
+              />
             </div>
+            {/* <div className="field unvisible-field">
+              <label htmlFor="lat">Latitiude</label>
+              <input
+                value={formData.lat}
+                required
+                disabled
+                type="number"
+                name="lat"
+                id="lat"
+                placeholder="latitiude"
+              />
+            </div>
+            <div className="field unvisible-field">
+              <label htmlFor="lng">Longitude</label>
+              <input
+                value={formData.lng}
+                required
+                disabled
+                type="number"
+                name="lng"
+                id="lng"
+                placeholder="Longitude"
+              />
+            </div> */}
             <div className="field">
-              <label>Your Phone Number</label>
-              <input />
+              <label htmlFor="description">Description</label>
+              <textarea
+                onChange={(e) =>
+                  setFormData((prevState) => ({
+                    ...prevState,
+                    description: e.target.value,
+                  }))
+                }
+                value={formData.description}
+                required
+                type="text"
+                name="description"
+                id="description"
+              />
             </div>
-            <div className="field">
-              <label>Description</label>
-              <textarea />
+            <div className="actions">
+              <button
+                className="ui button"
+                disabled={!formData.lat && !formData.lng}
+                type="submit"
+              >
+                Submit
+              </button>
+              {!formData.lat && !formData.lng && (
+                <div className="mapError">
+                  Please select your location in map!
+                </div>
+              )}
             </div>
-            <button className="ui button">Submit</button>
           </form>
         </div>
       </div>

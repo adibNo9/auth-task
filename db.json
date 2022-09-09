@@ -1,5 +1,42 @@
 {
-  "posts": [],
+  "posts": [
+    {
+      "fullName": "a",
+      "address": "a",
+      "phoneNumber": "a",
+      "description": "a",
+      "lat": 35.699736,
+      "lng": 51.338061,
+      "id": 1
+    },
+    {
+      "fullName": "a",
+      "address": "a",
+      "phoneNumber": "a",
+      "description": "a",
+      "lat": 35.699736,
+      "lng": 51.338061,
+      "id": 2
+    },
+    {
+      "fullName": "adib mokhtari",
+      "address": "shahran, toqani, mokhtari",
+      "phoneNumber": "09120680897",
+      "description": "this is the test description...",
+      "lat": 35.639108230391145,
+      "lng": 51.308560234228054,
+      "id": 3
+    },
+    {
+      "fullName": "a",
+      "address": "a",
+      "phoneNumber": "a",
+      "description": "a",
+      "lat": 35.735118495446606,
+      "lng": 51.332239816309055,
+      "id": 4
+    }
+  ],
   "comments": [
     {
       "id": 1,
@@ -34,6 +71,12 @@
       "email": "test3@gmail.com",
       "password": "123456789",
       "id": 4
+    },
+    {
+      "username": "adib",
+      "email": "adib@test.com",
+      "password": "123456789",
+      "id": 5
     }
   ]
 }
