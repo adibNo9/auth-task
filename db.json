@@ -55,13 +55,22 @@
       "id": 5
     },
     {
-      "fullName": "test",
-      "address": "test",
-      "phoneNumber": "73463276432",
-      "description": "jsdjvbsDkvjdsbvjkbfa.kdf.vj bdj bfskj bvkfjsbfkhf",
-      "lat": 35.773814689824356,
-      "lng": 51.415650332182175,
+      "fullName": "Test",
+      "address": "test123 , test 154 street",
+      "phoneNumber": "0912223123",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "lat": 35.73567635673783,
+      "lng": 51.30134582519532,
       "id": 6
+    },
+    {
+      "fullName": "Test testing",
+      "address": "TEST, 978 street, 111 alley",
+      "phoneNumber": "09121212122",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "lat": 35.80342741225047,
+      "lng": 51.43867492675781,
+      "id": 7
     }
   ]
 }

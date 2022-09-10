@@ -11,7 +11,7 @@ const ErrorModal = ({
 }) => {
   return (
     <div>
-      <div className="backdrop" />
+      <div className="backdrop" onClick={onCancleDelete} />
       <div className="modal card-container">
         <header className="header-error">
           <h2>{title}</h2>
