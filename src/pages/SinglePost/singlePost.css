@@ -157,3 +157,28 @@
 .ui.dividing.header {
   border-color: #003041 !important;
 }
+
+@media (max-width: 900px) {
+  .information-container {
+    flex-direction: column;
+  }
+  .map-container,
+  .form-container {
+    width: 100%;
+  }
+  .actions-container {
+    top: 31em;
+  }
+  .map-container {
+    height: 30em;
+  }
+}
+
+@media (max-width: 600px) {
+  .actions-container {
+    top: 26em;
+  }
+  .map-container {
+    height: 25em;
+  }
+}

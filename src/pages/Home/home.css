@@ -44,3 +44,22 @@
 .welcome-desc p {
   font-size: 16px;
 }
+
+@media (max-width: 980px) {
+  .post-map .leaflet-container {
+    height: 28vh !important;
+  }
+  .post-map {
+    height: 28vh !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .welcome-section {
+    flex-direction: column;
+  }
+  .welcome-section .buttonStyle {
+    margin-top: 20px !important;
+    padding: 12px 22px !important;
+  }
+}

@@ -82,3 +82,11 @@
   background-color: #6acdee;
   border-color: #6acdee;
 }
+
+@media (max-width: 900px) {
+  .modal {
+    top: 30vh;
+    left: 10%;
+    width: 80%;
+  }
+}
