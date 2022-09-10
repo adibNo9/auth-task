@@ -20,6 +20,7 @@
 
 .info-container {
   margin: 15px 20px;
+  height: 40px;
 }
 .addressKey {
   font-weight: 700;
@@ -45,7 +46,7 @@
 }
 
 .detailsBtn {
-  margin-right: 5px !important;
+  margin-right: 10px !important;
   background-color: #003041;
   border: 1px solid #003041;
 }

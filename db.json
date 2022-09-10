@@ -37,16 +37,6 @@
       "id": 2
     },
     {
-      "fullName": "Test 978 (updated!) on more time",
-      "address": "TEST, 978 street (updated!) on more time",
-      "phoneNumber": "09129994444",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "lat": 35.753770543862316,
-      "lng": 51.26494943996164,
-      "_id": 93,
-      "id": 3
-    },
-    {
       "fullName": "Test 978",
       "address": "TEST, 978 street",
       "phoneNumber": "09121212121",
@@ -63,6 +53,15 @@
       "lat": 35.73818668418478,
       "lng": 51.37241231401955,
       "id": 5
+    },
+    {
+      "fullName": "test",
+      "address": "test",
+      "phoneNumber": "73463276432",
+      "description": "jsdjvbsDkvjdsbvjkbfa.kdf.vj bdj bfskj bvkfjsbfkhf",
+      "lat": 35.773814689824356,
+      "lng": 51.415650332182175,
+      "id": 6
     }
   ]
 }

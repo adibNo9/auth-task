@@ -121,6 +121,16 @@
   cursor: not-allowed;
 }
 
+@media (max-width: 900px) {
+  .information-container {
+    flex-direction: column;
+  }
+  .map-container,
+  .form-container {
+    width: 100% !important;
+  }
+}
+
 @media (max-width: 600px) {
   .information-container {
     flex-direction: column;

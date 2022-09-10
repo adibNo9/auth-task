@@ -32,7 +32,7 @@ const SetLocation = ({ onAddNewPost }) => {
       <div className="information-container">
         <div className="map-container">
           <MapContainer
-            center={[35.689198, 51.388973]}
+            center={[center.lat, center.lng]}
             zoom={12}
             scrollWheelZoom={false}
           >
