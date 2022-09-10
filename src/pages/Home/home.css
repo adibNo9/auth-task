@@ -32,7 +32,7 @@
 }
 
 .welcome-section .buttonStyle {
-  padding: 15px 30px;
+  padding: 15px 30px !important;
   font-size: 16px;
   font-weight: 600;
 }

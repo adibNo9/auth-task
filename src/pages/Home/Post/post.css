@@ -36,7 +36,7 @@
 }
 
 .buttonStyle {
-  padding: 6px 20px;
+  padding: 6px 20px !important;
   color: #fff;
   width: auto;
   text-align: center;
@@ -45,6 +45,7 @@
 }
 
 .detailsBtn {
+  margin-right: 5px !important;
   background-color: #003041;
   border: 1px solid #003041;
 }

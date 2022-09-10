@@ -15,7 +15,8 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState([]);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-  const [userHasNotAcc, setUserHasNotAcc] = useState(false);
+  const [showPopupLogin, setShowPopupLogin] = useState(false);
+  const [userHasNotAcc, setUserHasNotAcc] = useState(null);
 
   const addNewPostHandler = (post) => {
     setNewPost((prevPosts) => [post, ...prevPosts]);
@@ -23,6 +24,7 @@ function App() {
 
   const logOutHandler = () => {
     setIsUserLoggedIn(false);
+    window.localStorage.removeItem("isloggedIn");
   };
 
   const isUserHasAcc = (values) => {
@@ -30,17 +32,16 @@ function App() {
       if (user.email === values.email) {
         console.log("you are our user, email is true");
         if (user.password === values.password) {
-          console.log("password is true");
           setIsUserLoggedIn(true);
-          return isUserLoggedIn;
+          setUserHasNotAcc(user.id);
+          window.localStorage.setItem("isloggedIn", true);
+          return user.id;
         } else {
-          console.log("password false");
+          return null;
         }
       } else {
         console.log("he is not user");
-
-        setUserHasNotAcc(true);
-        return false;
+        return null;
       }
     });
   };
@@ -52,6 +53,8 @@ function App() {
       const data = await response.json();
       setUsers(data);
     };
+
+    setIsUserLoggedIn(window.localStorage.getItem("isloggedIn"));
 
     getUsers();
   }, []);
@@ -79,7 +82,7 @@ function App() {
           path="/"
           element={
             <Suspense fallback={<PageSkeleton />}>
-              <Home posts={posts} />
+              <Home posts={posts} isUserLoggedIn={isUserLoggedIn} />
             </Suspense>
           }
         />
@@ -89,7 +92,7 @@ function App() {
             <Suspense fallback={<PageSkeleton />}>
               <Login
                 onCheckUser={isUserHasAcc}
-                showPopup={userHasNotAcc}
+                showPopup={showPopupLogin}
                 onHidePopUp={hidePopupHandler}
               />
             </Suspense>

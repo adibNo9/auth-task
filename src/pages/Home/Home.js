@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Skeleton from "../../components/Skeleton/Skeleton";
 import Post from "./Post/Post";
 
-const Home = ({ posts }) => {
+const Home = ({ posts, isUserLoggedIn }) => {
   return (
     <div className="home-container">
       <div className="welcome-section">
@@ -13,7 +13,10 @@ const Home = ({ posts }) => {
           <p>Do you want set your Location in application?</p>
         </div>
 
-        <Link className="buttonStyle setLocationBtn" to="/set-location">
+        <Link
+          className="buttonStyle setLocationBtn"
+          to={isUserLoggedIn ? "/set-location" : "/login"}
+        >
           Set Your current location
         </Link>
       </div>

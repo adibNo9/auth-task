@@ -36,6 +36,7 @@ const Login = ({ onCheckUser, showPopup, onHidePopUp }) => {
     validate,
     onSubmit: (values) => {
       onCheckUser(values);
+      navigate("/");
     },
   });
 
