@@ -15,6 +15,7 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState([]);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [userHasNotAcc, setUserHasNotAcc] = useState(false);
 
   const addNewPostHandler = (post) => {
     setNewPost((prevPosts) => [post, ...prevPosts]);
@@ -34,10 +35,11 @@ function App() {
           return isUserLoggedIn;
         } else {
           console.log("password false");
-          return false;
         }
       } else {
         console.log("he is not user");
+
+        setUserHasNotAcc(true);
         return false;
       }
     });
@@ -65,6 +67,10 @@ function App() {
     getPosts();
   }, [newPost]);
 
+  const hidePopupHandler = () => {
+    setUserHasNotAcc(false);
+  };
+
   return (
     <BrowserRouter>
       <Navbar isUserLoggedIn={isUserLoggedIn} onLogout={logOutHandler} />
@@ -81,7 +87,11 @@ function App() {
           path="/login"
           element={
             <Suspense fallback={<PageSkeleton />}>
-              <Login onCheckUser={isUserHasAcc} />
+              <Login
+                onCheckUser={isUserHasAcc}
+                showPopup={userHasNotAcc}
+                onHidePopUp={hidePopupHandler}
+              />
             </Suspense>
           }
         />
@@ -105,7 +115,10 @@ function App() {
           path=":postId"
           element={
             <Suspense fallback={<PageSkeleton />}>
-              <SinglePost />
+              <SinglePost
+                onAddNewPost={addNewPostHandler}
+                isUserLoggedIn={isUserLoggedIn}
+              />
             </Suspense>
           }
         />

@@ -1,1 +1,159 @@
+.location-container {
+  width: 90%;
+  max-width: 1080px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
+.cardHeader {
+  width: 90%;
+  max-width: 1080px;
+  text-align: center;
+  margin: auto;
+  margin-top: 1vh;
+}
+
+.information-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border: 1px solid #003041;
+  border-radius: 0;
+  box-shadow: 0 0 8px #00304191;
+  width: 90%;
+  margin: 3vh auto;
+  height: auto;
+  position: relative;
+}
+
+.map-container {
+  display: flex;
+  width: 50%;
+  height: 36em;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.form-container {
+  width: 50%;
+  height: 31em;
+  padding: 1em;
+  margin-top: 50px !important;
+}
+
+.ui.form {
+  font-size: 0.9rem;
+  height: 30em;
+}
+
+.ui.form .field {
+  margin: 0 0 0.5em !important;
+}
+
+.ui.form textarea:not([rows]) {
+  height: 8em;
+  min-height: 6em;
+  max-height: 8em;
+}
+
+.unvisible-field {
+  display: none;
+}
+
+.error {
+  margin-left: 20px;
+}
+
+.mapError {
+  font-size: 11px;
+  color: red;
+  font-weight: 400;
+  border-radius: 3px;
+  transition: all 0.3s ease-out;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.actions-container {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+
+.buttonStyle {
+  padding: 6px 10px 6px 20px;
+  width: auto;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease-out;
+  margin: 5px;
+  margin-top: 0;
+  margin-right: 0;
+  cursor: pointer;
+}
+
+.submitBtn {
+  background-color: #003041;
+  color: #fff;
+  border-radius: 0;
+  border-color: #003041;
+}
+
+.submitBtn:hover {
+  background-color: #6acdee;
+  color: #003041;
+  border-color: #6acdee;
+}
+
+.buttonStyle:hover {
+  transition: all 0.3s ease-out;
+}
+
+.edit-btn {
+  background-color: #6acdee;
+  color: #003041;
+  border: 2px solid #003041;
+}
+
+.edit-btn:hover {
+  color: #fff;
+  background-color: #003041;
+}
+
+.delete-btn {
+  background-color: #f6b319;
+  border: 2px solid #003041;
+  color: #003041;
+}
+
+.delete-btn:hover {
+  color: #fff;
+  background-color: rgb(119, 2, 2);
+  border-color: rgb(119, 2, 2);
+}
+
+.headerSpan,
+.detailSpan {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.descriptionSpan {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.ui.form input,
+.ui.form textarea {
+  border-radius: 0 !important;
+  border-color: #003041 !important;
+}
+
+.ui.dividing.header {
+  border-color: #003041 !important;
+}

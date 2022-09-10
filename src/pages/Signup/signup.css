@@ -1,6 +1,8 @@
 .formContainer {
   width: 350px;
-  margin: 15vh auto !important;
+  margin: 8vh auto !important;
+  border-radius: 0 !important;
+  border-color: #003041 !important;
 }
 
 .cardHeader {
@@ -20,4 +22,43 @@
 
 .termLink {
   color: #4183c4;
+}
+
+.buttonStyle {
+  padding: 6px 20px;
+  width: auto;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease-out;
+  margin: 5px;
+  margin-top: 0;
+  margin-right: 0;
+  cursor: pointer;
+}
+
+.submitBtn {
+  background-color: #003041;
+  color: #fff;
+  border-radius: 0;
+  border-color: #003041;
+}
+
+.submitBtn:hover {
+  background-color: #6acdee;
+  color: #003041;
+  border-color: #6acdee;
+}
+
+.ui.form input,
+.ui.form textarea {
+  border-radius: 0 !important;
+  border-color: #003041 !important;
+}
+
+.ui.dividing.header {
+  border-color: #003041 !important;
+}
+
+.ui.form {
+  height: auto !important;
 }

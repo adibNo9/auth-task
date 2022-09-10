@@ -1,0 +1,84 @@
+.card-container {
+  background-color: #fff;
+  box-shadow: 0 0 8px #10103c91;
+  border: 1px solid #10103c;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.753);
+}
+
+.modal {
+  position: fixed;
+  top: 30vh;
+  left: 35%;
+  width: 30%;
+  z-index: 10000;
+  overflow: hidden;
+}
+
+.header-error {
+  background-color: #10103c;
+  padding: 1rem;
+}
+
+.header-error h2 {
+  margin: 0;
+  color: #fff;
+}
+
+.content {
+  padding: 2rem 1rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 5px;
+}
+
+.buttonStyle {
+  padding: 6px 20px;
+  width: auto;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease-out;
+  margin: 5px;
+  margin-top: 0;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.buttonStyle:hover {
+  transition: all 0.3s ease-out;
+}
+
+.deleteBtn {
+  color: #fff;
+  background-color: #003041;
+  border-color: #003041;
+}
+
+.deleteBtn:hover {
+  background-color: rgb(119, 2, 2);
+  color: #fff;
+  border: 2px solid rgb(119, 2, 2);
+}
+
+.cancleBtn {
+  background-color: #fff;
+  border: 2px solid #003041;
+  color: #101010 !important;
+}
+
+.cancleBtn:hover {
+  color: #10103c;
+  background-color: #6acdee;
+  border-color: #6acdee;
+}

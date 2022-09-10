@@ -32,7 +32,7 @@ const Post = ({ post }) => {
         </p>
       </div>
       <div className="button-container">
-        <Link className="buttonStyle" to={`/${id}`}>
+        <Link className="buttonStyle detailsBtn" to={`/${id}`}>
           More Details
         </Link>
       </div>

@@ -1,6 +1,6 @@
-import React, { useState, useMemo, useRef, useCallback } from "react";
+import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { useNavigate } from "react-router-dom";
+import { useSetLocation } from "../../components/useSetLocation/useSetLocation";
 import "./setLocation.css";
 
 const center = {
@@ -9,54 +9,16 @@ const center = {
 };
 
 const SetLocation = ({ onAddNewPost }) => {
-  const [draggable, setDraggable] = useState(false);
-  const [position, setPosition] = useState(center);
-  const markerRef = useRef(null);
-  const [formData, setFormData] = useState({
-    fullName: "",
-    address: "",
-    phoneNumber: "",
-    description: "",
-    lat: undefined,
-    lng: undefined,
-  });
-  const navigate = useNavigate();
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    fetch("http://localhost:3001/posts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "Application/json",
-      },
-      body: JSON.stringify(formData),
-    }).then((res) => res.json());
-
-    onAddNewPost(formData);
-
-    navigate("/");
-  };
-
-  const eventHandlers = useMemo(
-    () => ({
-      dragend() {
-        const marker = markerRef.current;
-        if (marker != null) {
-          setPosition(marker.getLatLng());
-          setFormData((prevState) => ({
-            ...prevState,
-            lat: marker._latlng.lat,
-            lng: marker._latlng.lng,
-          }));
-        }
-      },
-    }),
-    []
-  );
-  const toggleDraggable = useCallback(() => {
-    setDraggable((d) => !d);
-  }, []);
+  const {
+    markerRef,
+    setFormData,
+    formData,
+    toggleDraggable,
+    eventHandlers,
+    submitHandler,
+    draggable,
+    position,
+  } = useSetLocation(onAddNewPost, center);
 
   return (
     <div className="location-container">
@@ -167,13 +129,15 @@ const SetLocation = ({ onAddNewPost }) => {
             </div>
             <div className="actions">
               <button
-                className="ui button"
-                disabled={!formData.lat && !formData.lng}
+                className="buttonStyle submitBtn"
+                disabled={
+                  formData.lat === center.lat && formData.lng === center.lng
+                }
                 type="submit"
               >
                 Submit
               </button>
-              {!formData.lat && !formData.lng && (
+              {formData.lat === center.lat && formData.lng === center.lng && (
                 <div className="mapError">
                   Please select your location in map!
                 </div>

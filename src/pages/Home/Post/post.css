@@ -13,8 +13,9 @@
 
 .post-container {
   width: 320px;
-  border: 1px solid #003041;
+  border: 1px solid #10103c;
   margin: 20px;
+  box-shadow: 0 0 8px #10103c91;
 }
 
 .info-container {
@@ -36,7 +37,6 @@
 
 .buttonStyle {
   padding: 6px 20px;
-  background-color: #003041;
   color: #fff;
   width: auto;
   text-align: center;
@@ -44,8 +44,22 @@
   margin: 10px;
 }
 
-.buttonStyle:hover {
-  color: #fff;
-  background-color: #003041e1;
+.detailsBtn {
+  background-color: #003041;
+  border: 1px solid #003041;
+}
+.detailsBtn:hover {
+  color: #10103c;
+  background-color: #f6b319;
+  transition: all 0.3s ease-out;
+}
+
+.setLocationBtn {
+  background-color: #003041;
+  border: 1px solid #003041;
+}
+.setLocationBtn:hover {
+  color: #10103c;
+  background-color: #f6b319;
   transition: all 0.3s ease-out;
 }

@@ -10,10 +10,6 @@ const Skeleton = () => {
       <p className="row"></p>
       <p className="row"></p>
       <p className="row"></p>
-      <p className="row"></p>
-      <p className="row"></p>
-      <p className="row"></p>
-      <p className="row"></p>
     </div>
   );
 };

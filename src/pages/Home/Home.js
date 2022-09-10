@@ -1,7 +1,7 @@
 import "./home.css";
 import React from "react";
 import { Link } from "react-router-dom";
-import Skeleton from "../../components/Navbar/Skeleton/Skeleton";
+import Skeleton from "../../components/Skeleton/Skeleton";
 import Post from "./Post/Post";
 
 const Home = ({ posts }) => {
@@ -13,7 +13,7 @@ const Home = ({ posts }) => {
           <p>Do you want set your Location in application?</p>
         </div>
 
-        <Link className="buttonStyle" to="/set-location">
+        <Link className="buttonStyle setLocationBtn" to="/set-location">
           Set Your current location
         </Link>
       </div>
