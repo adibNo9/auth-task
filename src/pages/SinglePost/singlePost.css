@@ -1,3 +1,12 @@
+.pageContainer {
+    width: 90%;
+      max-width: 1080px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+}
+
 .location-container {
   width: 90%;
   max-width: 1080px;
@@ -16,6 +25,8 @@
 }
 
 .information-container {
+  margin: 3vh auto;
+  max-width: 1080px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -101,13 +112,13 @@
   background-color: #003041;
   color: #fff;
   border-radius: 0;
-  border-color: #003041;
+  border: 2px solid #003041;
 }
 
 .submitBtn:hover {
   background-color: #6acdee;
   color: #003041;
-  border-color: #6acdee;
+  border:2px solid #6acdee;
 }
 
 .buttonStyle:hover {
@@ -134,7 +145,7 @@
 .delete-btn:hover {
   color: #fff;
   background-color: rgb(119, 2, 2);
-  border-color: rgb(119, 2, 2);
+  border: 2px solid rgb(119, 2, 2);
 }
 
 .headerSpan,

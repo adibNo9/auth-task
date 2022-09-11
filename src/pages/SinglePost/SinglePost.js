@@ -72,7 +72,7 @@ const SinglePost = ({ onAddNewPost, isUserLoggedIn }) => {
   };
 
   return (
-    <>
+    <div className="pageContainer">
       {showPopup && (
         <ErrorModal
           actionButton="Delete"
@@ -83,6 +83,13 @@ const SinglePost = ({ onAddNewPost, isUserLoggedIn }) => {
           message="Are you sure for delete post?"
         />
       )}
+      <div className="cardHeader">
+        <h1 className="ui header">Single Post</h1>
+        <p>
+          set your location in the app to show to another users, Click on Marker
+          location and drag it.
+        </p>
+      </div>
       <div className="information-container">
         {isUserLoggedIn && (
           <div className="actions-container">
@@ -121,8 +128,8 @@ const SinglePost = ({ onAddNewPost, isUserLoggedIn }) => {
                 <Popup minWidth={90}>
                   <span onClick={toggleDraggable}>
                     {draggable
-                      ? "Marker is draggable"
-                      : "Click here to make marker draggable"}
+                      ? 'Marker is draggable'
+                      : 'Click here to make marker draggable'}
                   </span>
                 </Popup>
               )}
@@ -219,25 +226,25 @@ const SinglePost = ({ onAddNewPost, isUserLoggedIn }) => {
           ) : (
             <div className="post-details-container">
               <h3 className="ui dividing header">
-                <span className="headerSpan">Username: </span>{" "}
+                <span className="headerSpan">Username: </span>{' '}
                 {formData.fullName}
               </h3>
               <h4>
                 <span className="detailSpan">Address: </span> {formData.address}
               </h4>
               <h5>
-                <span className="detailSpan">Phone Number: </span>{" "}
+                <span className="detailSpan">Phone Number: </span>{' '}
                 {formData.phoneNumber}
               </h5>
               <p>
-                <span className="descriptionSpan">Description: </span>{" "}
+                <span className="descriptionSpan">Description: </span>{' '}
                 {formData.description}
               </p>
             </div>
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
