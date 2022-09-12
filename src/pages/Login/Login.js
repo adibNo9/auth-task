@@ -62,55 +62,66 @@ const Login = ({ users, setIsUserLoggedIn }) => {
   });
 
   return (
-      <div className="ui segment formContainer">
-        <div className="cardHeader">
-          <h1 className="ui header">Login</h1>
-          <p>set your location in the app and enjoy...</p>
+    <div className="ui segment formContainer">
+      <div className="cardHeader">
+        <h1 className="ui header">Login</h1>
+        <p>set your location in the app and enjoy...</p>
+      </div>
+      <form onSubmit={formik.handleSubmit} className="ui form">
+        <div className="field">
+          <label htmlFor="email">E-Mail</label>
+          <input
+            onChange={formik.handleChange}
+            value={formik.values.email}
+            onBlur={formik.handleBlur}
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Email Address"
+          />
+          {formik.touched.email && formik.errors.email && (
+            <div className="error">{formik.errors.email}</div>
+          )}
         </div>
-        <form onSubmit={formik.handleSubmit} className="ui form">
-          <div className="field">
-            <label htmlFor="email">E-Mail</label>
-            <input
-              onChange={formik.handleChange}
-              value={formik.values.email}
-              onBlur={formik.handleBlur}
-              id="email"
-              type="email"
-              name="email"
-              placeholder="Email Address"
-            />
-            {formik.touched.email && formik.errors.email && (
-              <div className="error">{formik.errors.email}</div>
-            )}
-          </div>
-          <div className="field">
-            <label htmlFor="password">Password</label>
-            <input
-              onChange={formik.handleChange}
-              value={formik.values.password}
-              onBlur={formik.handleBlur}
-              id="password"
-              type="password"
-              name="password"
-              placeholder="Password"
-            />
-            {formik.touched.password && formik.errors.password && (
-              <div className="error">{formik.errors.password}</div>
-            )}
-          </div>
-          <div className="field">
-            <div className="ui">
+        <div className="field">
+          <label htmlFor="password">Password</label>
+          <input
+            onChange={formik.handleChange}
+            value={formik.values.password}
+            onBlur={formik.handleBlur}
+            id="password"
+            type="password"
+            name="password"
+            placeholder="Password"
+          />
+          {formik.touched.password && formik.errors.password && (
+            <div className="error">{formik.errors.password}</div>
+          )}
+        </div>
+        <div className="field">
+          <div className="ui formText">
+            {loginError ? (
+              <p className="error">
+                username or password is wrong!{' '}
+                <span className="tryAgain">
+                  try again or <Link to="/signup">Create an Account</Link>
+                </span>
+              </p>
+            ) : (
               <p>
                 Not registered yet? <Link to="/signup">Create an Account</Link>
               </p>
-              {loginError && <p className="error">username or password is wrong! try again</p>}
-            </div>
+            )}
           </div>
-          <button className={`buttonStyle submitBtn ${buttonError && "shake"}`} type="submit">
-            LOGIN
-          </button>
-        </form>
-      </div>
+        </div>
+        <button
+          className={`buttonStyle submitBtn ${buttonError && 'shake'}`}
+          type="submit"
+        >
+          LOGIN
+        </button>
+      </form>
+    </div>
   );
 };
 

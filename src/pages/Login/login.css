@@ -11,7 +11,7 @@
 
 .error {
   color: red;
-  font-size: 12px;
+  font-size: 13px;
   margin-bottom: 5px;
 }
 
@@ -56,6 +56,15 @@
 
 .ui.form {
   height: auto !important;
+}
+
+.tryAgain {
+  color: #000;
+  font-size: 14px;
+}
+
+.formText p {
+  height: 40px;
 }
 
 @keyframes shake {
