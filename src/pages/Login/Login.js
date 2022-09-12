@@ -1,12 +1,17 @@
 import "./login.css";
 import React, { useState ,useEffect } from "react";
-import { useFormik } from "formik";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useFormikdata } from './useData';
 
 const Login = ({ users, setIsUserLoggedIn }) => {
   const [loginError, setLoginError] = useState(false);
   const [buttonError, setButtonError] =useState(false);
+  const formik = useFormikdata(
+    users,
+    setIsUserLoggedIn,
+    setLoginError,
+    setButtonError
+  );
 
   useEffect(() => {
     let clearError = setTimeout(() => {
@@ -16,50 +21,8 @@ const Login = ({ users, setIsUserLoggedIn }) => {
     return () => {
       clearTimeout(clearError);
     }
-  })
-
-
-  const navigate = useNavigate();
-
-  const validate = (values) => {
-    const errors = {};
-
-    if (!values.email) {
-      errors.email = "Required";
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-    ) {
-      errors.email = "Invalid email address";
-    }
-
-    if (!values.password) {
-      errors.password = "Required";
-    } else if (values.password.length < 8) {
-      errors.password = "Must be 8 characters or more";
-    }
-
-    return errors;
-  };
-
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validate,
-    onSubmit: (values) => {
-      const user = users.find(user => user.email === values.email && user.password === values.password ? user.id : '');
-
-      if (user) {
-        setIsUserLoggedIn(true);
-        window.localStorage.setItem('isloggedIn', true);
-        navigate('/');
-      } else {
-        setLoginError(true);
-        setButtonError(true);
-      }
-    },
   });
+
 
   return (
     <div className="ui segment formContainer">
