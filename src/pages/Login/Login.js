@@ -1,11 +1,24 @@
 import "./login.css";
-import React from "react";
+import React, { useState ,useEffect } from "react";
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import ErrorModal from "../../components/UI/ErrorModal";
 
-const Login = ({ onCheckUser, showPopup, onHidePopUp }) => {
+const Login = ({ users, setIsUserLoggedIn }) => {
+  const [loginError, setLoginError] = useState(false);
+  const [buttonError, setButtonError] =useState(false);
+
+  useEffect(() => {
+    let clearError = setTimeout(() => {
+      setButtonError(false)
+    }, 300);
+
+    return () => {
+      clearTimeout(clearError);
+    }
+  })
+
+
   const navigate = useNavigate();
 
   const validate = (values) => {
@@ -35,30 +48,20 @@ const Login = ({ onCheckUser, showPopup, onHidePopUp }) => {
     },
     validate,
     onSubmit: (values) => {
-      onCheckUser(values);
-      navigate("/");
+      const user = users.find(user => user.email === values.email && user.password === values.password ? user.id : '');
+
+      if (user) {
+        setIsUserLoggedIn(true);
+        window.localStorage.setItem('isloggedIn', true);
+        navigate('/');
+      } else {
+        setLoginError(true);
+        setButtonError(true);
+      }
     },
   });
 
-  const signupHandler = () => {
-    navigate("/signup");
-  };
-
-  const cancleSignupHandler = () => {
-    onHidePopUp();
-  };
   return (
-    <>
-      {showPopup && (
-        <ErrorModal
-          actionButton="Sign Up"
-          cancleButton="Cancle"
-          onDeletePost={signupHandler}
-          onCancleDelete={cancleSignupHandler}
-          title="Sign Up First"
-          message="Username or Password wrong! if you not regerstered, create account first."
-        />
-      )}
       <div className="ui segment formContainer">
         <div className="cardHeader">
           <h1 className="ui header">Login</h1>
@@ -100,14 +103,14 @@ const Login = ({ onCheckUser, showPopup, onHidePopUp }) => {
               <p>
                 Not registered yet? <Link to="/signup">Create an Account</Link>
               </p>
+              {loginError && <p className="error">username or password is wrong! try again</p>}
             </div>
           </div>
-          <button className="buttonStyle submitBtn" type="submit">
+          <button className={`buttonStyle submitBtn ${buttonError && "shake"}`} type="submit">
             LOGIN
           </button>
         </form>
       </div>
-    </>
   );
 };
 

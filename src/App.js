@@ -3,6 +3,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import PageSkeleton from "./components/PageSkeleton/PageSkeleton";
+import ErrorModal from "./components/UI/ErrorModal";
 
 const SinglePost = React.lazy(() => import("./pages/SinglePost/SinglePost"));
 const Home = React.lazy(() => import("./pages/Home/Home"));
@@ -15,32 +16,21 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState([]);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
+  
   const addNewPostHandler = (post) => {
     setNewPost((prevPosts) => [post, ...prevPosts]);
   };
 
+  const askForLogout = () => {
+    setShowPopup(true);
+  }
+
   const logOutHandler = () => {
     setIsUserLoggedIn(false);
     window.localStorage.removeItem("isloggedIn");
-  };
-
-  const isUserHasAcc = (values) => {
-    users.find((user) => {
-      if (user.email === values.email) {
-        console.log("you are our user, email is true");
-        if (user.password === values.password) {
-          setIsUserLoggedIn(true);
-          window.localStorage.setItem("isloggedIn", true);
-          return user.id;
-        } else {
-          return null;
-        }
-      } else {
-        console.log("he is not user");
-        return null;
-      }
-    });
+    setShowPopup(false)
   };
 
   useEffect(() => {
@@ -69,7 +59,17 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar isUserLoggedIn={isUserLoggedIn} onLogout={logOutHandler} />
+      <Navbar isUserLoggedIn={isUserLoggedIn} onLogout={askForLogout} />
+      {showPopup && (
+        <ErrorModal
+          actionButton="Logout"
+          cancleButton="Cancle"
+          onDeletePost={logOutHandler}
+          onCancleDelete={() => setShowPopup(false)}
+          title="Logout"
+          message="Are you sure for logout?"
+        />
+      )}
       <Routes>
         <Route
           path="/"
@@ -83,7 +83,7 @@ function App() {
           path="/login"
           element={
             <Suspense fallback={<PageSkeleton />}>
-              <Login onCheckUser={isUserHasAcc} />
+              <Login setIsUserLoggedIn={setIsUserLoggedIn} users={users} />
             </Suspense>
           }
         />
