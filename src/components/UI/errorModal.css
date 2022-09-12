@@ -40,7 +40,6 @@
 .actions {
   display: flex;
   justify-content: flex-end !important;
-  margin-right: 5px;
 }
 
 .buttonStyle {

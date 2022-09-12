@@ -165,6 +165,11 @@ const SetLocation = () => {
             />
           </div>
           <div className="actions">
+            {!formData.lat && !formData.lng && (
+              <div className="mapError">
+                Please select your location in map!
+              </div>
+            )}
             <button
               className="ui button"
               disabled={!formData.lat && !formData.lng}
@@ -172,11 +177,6 @@ const SetLocation = () => {
             >
               Submit
             </button>
-            {!formData.lat && !formData.lng && (
-              <div className="mapError">
-                Please select your location in map!
-              </div>
-            )}
           </div>
         </form>
       </div>

@@ -42,11 +42,11 @@
   width: auto;
   text-align: center;
   transition: all 0.3s ease-out;
-  margin: 10px;
+  margin: 5px;
 }
 
 .detailsBtn {
-  margin-right: 10px !important;
+  margin-right: 5px !important;
   background-color: #003041;
   border: 1px solid #003041;
 }
