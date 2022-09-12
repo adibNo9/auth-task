@@ -23,6 +23,18 @@
       "email": "test3@gmail.com",
       "password": "123456789",
       "id": 4
+    },
+    {
+      "username": "adibTest",
+      "email": "adib@test.com",
+      "password": "1234567890",
+      "id": 5
+    },
+    {
+      "username": "test4",
+      "email": "test@testing.com",
+      "password": "1234567890",
+      "id": 6
     }
   ],
   "posts": [

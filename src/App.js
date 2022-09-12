@@ -13,6 +13,7 @@ const SetLocation = React.lazy(() => import("./pages/SetLocation/SetLocation"));
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [newUser, setNEwUser] = useState([]);
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState([]);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
@@ -35,16 +36,16 @@ function App() {
 
   useEffect(() => {
     const getUsers = async () => {
-      const response = await fetch("http://localhost:3001/users");
+      const response = await fetch('http://localhost:3001/users');
 
       const data = await response.json();
       setUsers(data);
     };
 
-    setIsUserLoggedIn(window.localStorage.getItem("isloggedIn"));
+    setIsUserLoggedIn(window.localStorage.getItem('isloggedIn'));
 
     getUsers();
-  }, []);
+  }, [newUser]);
 
   useEffect(() => {
     const getPosts = async () => {
@@ -91,7 +92,7 @@ function App() {
           path="/signup"
           element={
             <Suspense fallback={<PageSkeleton />}>
-              <Signup setUserSignup={setUsers} />
+              <Signup setUserSignup={setUsers} setNEwUser={setNEwUser} />
             </Suspense>
           }
         />
