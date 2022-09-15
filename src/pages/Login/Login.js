@@ -1,11 +1,11 @@
 import "./login.css";
-import React, { useState ,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useFormikdata } from './useData';
+import { useFormikdata } from "./useData";
 
 const Login = ({ users, setIsUserLoggedIn }) => {
-  const [loginError, setLoginError] = useState(false);
-  const [buttonError, setButtonError] =useState(false);
+  const [loginError, setLoginError] = useState("");
+  const [buttonError, setButtonError] = useState(false);
   const formik = useFormikdata(
     users,
     setIsUserLoggedIn,
@@ -15,14 +15,13 @@ const Login = ({ users, setIsUserLoggedIn }) => {
 
   useEffect(() => {
     let clearError = setTimeout(() => {
-      setButtonError(false)
+      setButtonError(false);
     }, 300);
 
     return () => {
       clearTimeout(clearError);
-    }
+    };
   });
-
 
   return (
     <div className="ui segment formContainer">
@@ -65,7 +64,7 @@ const Login = ({ users, setIsUserLoggedIn }) => {
           <div className="ui formText">
             {loginError ? (
               <p className="error">
-                username or password is wrong!{' '}
+                {loginError}{" "}
                 <span className="tryAgain">
                   try again or <Link to="/signup">Create an Account</Link>
                 </span>
@@ -78,7 +77,7 @@ const Login = ({ users, setIsUserLoggedIn }) => {
           </div>
         </div>
         <button
-          className={`buttonStyle submitBtn ${buttonError && 'shake'}`}
+          className={`buttonStyle submitBtn ${buttonError && "shake"}`}
           type="submit"
         >
           LOGIN

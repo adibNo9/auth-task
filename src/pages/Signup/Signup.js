@@ -1,32 +1,34 @@
 import "./signup.css";
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
-const Signup = ({ setUserSignup, setNEwUser }) => {
+const Signup = () => {
+  const [err, setErr] = useState("");
+  const [isloading, setIsloading] = useState(false);
   const navigate = useNavigate();
 
   const validate = (values) => {
     const errors = {};
 
     if (!values.username) {
-      errors.username = 'Required';
+      errors.username = "Required";
     } else if (values.username.length < 4) {
-      errors.username = 'Must be 4 characters or more';
+      errors.username = "Must be 4 characters or more";
     }
 
     if (!values.email) {
-      errors.email = 'Required';
+      errors.email = "Required";
     } else if (
       !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
     ) {
-      errors.email = 'Invalid email address';
+      errors.email = "Invalid email address";
     }
 
     if (!values.password) {
-      errors.password = 'Required';
+      errors.password = "Required";
     } else if (values.password.length < 8) {
-      errors.password = 'Must be 8 characters or more';
+      errors.password = "Must be 8 characters or more";
     }
 
     return errors;
@@ -34,25 +36,29 @@ const Signup = ({ setUserSignup, setNEwUser }) => {
 
   const formik = useFormik({
     initialValues: {
-      username: '',
-      email: '',
-      password: '',
+      username: "",
+      email: "",
+      password: "",
     },
     validate,
     onSubmit: (values) => {
-      fetch('http://localhost:3001/users', {
-        method: 'POST',
+      setIsloading(true);
+      fetch("http://localhost:3000/users", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-
-      navigate('/login');
-      setUserSignup((prevUsers) => [...prevUsers, values]);
-      setNEwUser((prevUsers => [...prevUsers, values]));
+      }).then((res) => {
+        setIsloading(false);
+        if (res.ok) {
+          navigate("/login");
+        } else {
+          return res.json().then((data) => {
+            setErr(data);
+          });
+        }
+      });
     },
   });
 
@@ -108,18 +114,33 @@ const Signup = ({ setUserSignup, setNEwUser }) => {
             <div className="error">{formik.errors.password}</div>
           )}
         </div>
-        <div className="field">
-          <div className="ui termParagraph">
-            <p>
-              By selecting Create account you agree to our{' '}
-              <span className="termLink">Terms</span> and have read our{' '}
-              <span className="termLink">Global Privacy Statement</span>.
-            </p>
+        {!err && (
+          <div className="field">
+            <div className="ui termParagraph">
+              <p>
+                By selecting Create account you agree to our{" "}
+                <span className="termLink">Terms</span> and have read our{" "}
+                <span className="termLink">Global Privacy Statement</span>.
+              </p>
+            </div>
           </div>
-        </div>
-        <button className="buttonStyle submitBtn" type="submit">
-          Create account
-        </button>
+        )}
+        {err && (
+          <p className="error">
+            {err}
+            {"   "}
+            <span className="tryAgain">
+              try again or <Link to="/login">Login</Link> with existing account
+            </span>
+          </p>
+        )}
+        {!isloading ? (
+          <button className="buttonStyle submitBtn" type="submit">
+            Create account
+          </button>
+        ) : (
+          <div class="ui active centered inline loader"></div>
+        )}
       </form>
     </div>
   );

@@ -40,7 +40,7 @@
   background-color: #003041;
   color: #fff;
   border-radius: 0;
-  border-color: #003041;
+  border: 2px solid #003041;
 }
 
 .submitBtn:hover {
@@ -61,4 +61,8 @@
 
 .ui.form {
   height: auto !important;
+}
+
+.tryAgain {
+  color: #000;
 }

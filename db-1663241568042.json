@@ -35,24 +35,6 @@
       "email": "test@testing.com",
       "password": "1234567890",
       "id": 6
-    },
-    {
-      "email": "adib9@gmail.com",
-      "password": "$2a$10$Xxd4YVshxMnBjJZsEHsq6OLJ.yJcbJEg1U7Qo6n6R5QB/Q5lZlEiG",
-      "username": "adib",
-      "id": 7
-    },
-    {
-      "email": "asdsad@gmail.com",
-      "password": "$2a$10$XgTall/hjFqEq0kynD0w9uFrG6NOdygKwLuG/uNJ7cVCkYARgga8S",
-      "username": "adib",
-      "id": 8
-    },
-    {
-      "email": "adib98@gmail.com",
-      "password": "$2a$10$LvfJ6MM09hOHe2HgDy/8SumCpBXUKot1uXw8IUG0Oqe5x7JtD7/DO",
-      "username": "adib",
-      "id": 9
     }
   ],
   "posts": [
