@@ -25,6 +25,7 @@ const Home = ({ posts, isUserLoggedIn }) => {
           [1, 2, 3, 4, 5, 6].map((post) => <Skeleton key={post} />)}
         {posts &&
           posts.map((post) => <Post key={post.id.toString()} post={post} />)}
+        {console.log(posts)}
       </div>
     </div>
   );

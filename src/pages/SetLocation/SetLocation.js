@@ -8,7 +8,7 @@ const center = {
   lng: 51.338061,
 };
 
-const SetLocation = ({ onAddNewPost }) => {
+const SetLocation = ({ token, onAddNewPost }) => {
   const {
     markerRef,
     setFormData,
@@ -18,7 +18,7 @@ const SetLocation = ({ onAddNewPost }) => {
     submitHandler,
     draggable,
     position,
-  } = useSetLocation(onAddNewPost, center);
+  } = useSetLocation(token, onAddNewPost, center);
 
   const renderHeader = () => {
     return (
@@ -30,8 +30,8 @@ const SetLocation = ({ onAddNewPost }) => {
         </p>
       </div>
     );
-  }
- 
+  };
+
   const renderMap = () => {
     return (
       <div className="map-container">
@@ -54,15 +54,15 @@ const SetLocation = ({ onAddNewPost }) => {
             <Popup minWidth={90}>
               <span onClick={toggleDraggable}>
                 {draggable
-                  ? 'Marker is draggable'
-                  : 'Click here to make marker draggable'}
+                  ? "Marker is draggable"
+                  : "Click here to make marker draggable"}
               </span>
             </Popup>
           </Marker>
         </MapContainer>
       </div>
     );
-  }
+  };
 
   const renderForm = () => {
     return (
@@ -155,7 +155,7 @@ const SetLocation = ({ onAddNewPost }) => {
         </form>
       </div>
     );
-  }
+  };
 
   return (
     <div className="location-container">

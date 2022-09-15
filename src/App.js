@@ -26,7 +26,7 @@ function App() {
 
   const logOutHandler = () => {
     setToken(null);
-    localStorage.removeItem("token");
+    window.localStorage.removeItem("token");
     setShowPopup(false);
   };
 
@@ -87,7 +87,7 @@ function App() {
           path="/set-location"
           element={
             <Suspense fallback={<PageSkeleton />}>
-              <SetLocation onAddNewPost={addNewPostHandler} />
+              <SetLocation token={token} onAddNewPost={addNewPostHandler} />
             </Suspense>
           }
         />
@@ -96,6 +96,7 @@ function App() {
           element={
             <Suspense fallback={<PageSkeleton />}>
               <SinglePost
+                token={token}
                 onAddNewPost={addNewPostHandler}
                 isUserLoggedIn={isUserLoggedIn}
               />

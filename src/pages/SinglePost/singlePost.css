@@ -1,10 +1,10 @@
 .pageContainer {
-    width: 90%;
-      max-width: 1080px;
-      margin: auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+  width: 90%;
+  max-width: 1080px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .location-container {
@@ -118,7 +118,7 @@
 .submitBtn:hover {
   background-color: #6acdee;
   color: #003041;
-  border:2px solid #6acdee;
+  border: 2px solid #6acdee;
 }
 
 .buttonStyle:hover {
@@ -127,23 +127,23 @@
 
 .edit-btn {
   background-color: #6acdee;
-  color: #003041;
+  color: #003041 !important;
   border: 2px solid #003041;
 }
 
 .edit-btn:hover {
-  color: #fff;
+  color: #fff !important;
   background-color: #003041;
 }
 
 .delete-btn {
   background-color: #f6b319;
   border: 2px solid #003041;
-  color: #003041;
+  color: #003041 !important;
 }
 
 .delete-btn:hover {
-  color: #fff;
+  color: #fff !important;
   background-color: rgb(119, 2, 2);
   border: 2px solid rgb(119, 2, 2);
 }
@@ -167,6 +167,17 @@
 
 .ui.dividing.header {
   border-color: #003041 !important;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 5px;
 }
 
 @media (max-width: 900px) {

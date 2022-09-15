@@ -1,115 +1,81 @@
 {
   "users": [
     {
-      "username": "adib",
       "email": "adib.mokhtari@gmail.com",
-      "password": "123456789",
+      "password": "$2a$10$RUOskrbPE2B7UMl7meFhs.gG9w7v3y95/rBt.IUBAJ9iVCG8Hmtqq",
+      "username": "adib98",
       "id": 1
     },
     {
-      "username": "test",
-      "email": "test.test@gmail.com",
-      "password": "123456789",
-      "id": 2
-    },
-    {
-      "username": "test2",
-      "email": "test2@gmail.com",
-      "password": "123456789",
-      "id": 3
-    },
-    {
-      "username": "test3",
-      "email": "test3@gmail.com",
-      "password": "123456789",
-      "id": 4
-    },
-    {
-      "username": "adibTest",
-      "email": "adib@test.com",
-      "password": "1234567890",
-      "id": 5
-    },
-    {
-      "username": "test4",
-      "email": "test@testing.com",
-      "password": "1234567890",
-      "id": 6
-    },
-    {
       "email": "adib9@gmail.com",
-      "password": "$2a$10$Xxd4YVshxMnBjJZsEHsq6OLJ.yJcbJEg1U7Qo6n6R5QB/Q5lZlEiG",
+      "password": "$2a$10$7klQYzh6AFeiKgf5D2Gdx.GGYR9q7VQi8QI1g0c/18JM7aaIjTmqW",
       "username": "adib",
-      "id": 7
-    },
-    {
-      "email": "asdsad@gmail.com",
-      "password": "$2a$10$XgTall/hjFqEq0kynD0w9uFrG6NOdygKwLuG/uNJ7cVCkYARgga8S",
-      "username": "adib",
-      "id": 8
-    },
-    {
-      "email": "adib98@gmail.com",
-      "password": "$2a$10$LvfJ6MM09hOHe2HgDy/8SumCpBXUKot1uXw8IUG0Oqe5x7JtD7/DO",
-      "username": "adib",
-      "id": 9
+      "id": 2
     }
   ],
   "posts": [
     {
-      "fullName": "Test testing (updated also!)",
-      "address": "TEHRAN, TEST ADDRESS (updated also!)",
-      "phoneNumber": "0912121212",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "lat": 35.683236924482586,
-      "lng": 51.302374893329265,
-      "_id": 48,
+      "author": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkaWI5QGdtYWlsLmNvbSIsImlhdCI6MTY2MzI1NTU2NywiZXhwIjoxNjYzMjU5MTY3LCJzdWIiOiIyIn0.9n8bdg1Ub0nIpywsEDslzpCSkPpib5-9CybvvH2IeUE",
+      "fullName": "Adib Mokhtari",
+      "address": "shahran, toqani, mokhtari",
+      "phoneNumber": "09120680897",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "lat": 35.76021838414728,
+      "lng": 51.30512237548829,
+      "id": 1
+    },
+    {
+      "author": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkaWI5QGdtYWlsLmNvbSIsImlhdCI6MTY2MzI1NTU2NywiZXhwIjoxNjYzMjU5MTY3LCJzdWIiOiIyIn0.9n8bdg1Ub0nIpywsEDslzpCSkPpib5-9CybvvH2IeUE",
+      "fullName": "AdibNo9",
+      "address": "TEST, 978 street",
+      "phoneNumber": "09121212121",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "lat": 35.68015001119403,
+      "lng": 51.3006591796875,
       "id": 2
     },
     {
+      "author": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkaWI5QGdtYWlsLmNvbSIsImlhdCI6MTY2MzI1NTU2NywiZXhwIjoxNjYzMjU5MTY3LCJzdWIiOiIyIn0.9n8bdg1Ub0nIpywsEDslzpCSkPpib5-9CybvvH2IeUE",
       "fullName": "Test 978",
       "address": "TEST, 978 street",
-      "phoneNumber": "09121212121",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "lat": 35.732887011201186,
-      "lng": 51.37447217126892,
+      "phoneNumber": "0912456789",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "lat": 35.80036173937534,
+      "lng": 51.43936157226563,
+      "id": 3
+    },
+    {
+      "author": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkaWIubW9raHRhcmlAZ21haWwuY29tIiwiaWF0IjoxNjYzMjU1Njk3LCJleHAiOjE2NjMyNTkyOTcsInN1YiI6IjEifQ.ur9k7wR1AIIomOLX2GY1dx2iF0rPZV_OYre4TUuYgFA",
+      "fullName": "Test testing",
+      "address": "TEHRAN, TEST ADDRESS (UPDATED!!!!!!!!!!!!!!!!)",
+      "phoneNumber": "0912987654",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "lat": 35.81564586109945,
+      "lng": 51.63436889648438,
       "id": 4
     },
     {
-      "fullName": "adib mokhtari updated!",
-      "address": "TEHRAN, TEST ADDRESS (UPDATED!)",
-      "phoneNumber": "09120680897",
-      "description": "TEST DESCRIPTION!",
-      "lat": 35.73818668418478,
-      "lng": 51.37241231401955,
+      "author": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkaWIubW9raHRhcmlAZ21haWwuY29tIiwiaWF0IjoxNjYzMjU1Njk3LCJleHAiOjE2NjMyNTkyOTcsInN1YiI6IjEifQ.ur9k7wR1AIIomOLX2GY1dx2iF0rPZV_OYre4TUuYgFA",
+      "fullName": "Test",
+      "address": "test123 , test 154 street",
+      "phoneNumber": "0912121212",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "lat": 35.68461587076351,
+      "lng": 51.38923645019532,
       "id": 5
     },
     {
-      "fullName": "Test",
-      "address": "test123 , test 154 street",
+      "author": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkaWIubW9raHRhcmlAZ21haWwuY29tIiwiaWF0IjoxNjYzMjU1Njk3LCJleHAiOjE2NjMyNTkyOTcsInN1YiI6IjEifQ.ur9k7wR1AIIomOLX2GY1dx2iF0rPZV_OYre4TUuYgFA",
+      "fullName": "Last Test ",
+      "address": "Test address, test street , Test alley UPDATED!",
       "phoneNumber": "0912223123",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "lat": 35.73567635673783,
-      "lng": 51.30134582519532,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "lat": 35.761333751038926,
+      "lng": 51.36177062988282,
       "id": 6
-    },
-    {
-      "fullName": "Test testing",
-      "address": "TEST, 978 street, 111 alley",
-      "phoneNumber": "09121212122",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "lat": 35.80342741225047,
-      "lng": 51.43867492675781,
-      "id": 7
-    },
-    {
-      "fullName": "Test testing",
-      "address": "Test address, test street , Test alley",
-      "phoneNumber": "09121121212",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "lat": 35.808904044068626,
-      "lng": 51.63024902343751,
-      "id": 8
     }
-  ]
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }

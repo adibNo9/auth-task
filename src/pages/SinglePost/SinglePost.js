@@ -10,7 +10,9 @@ const center = {
   lng: 51.338061,
 };
 
-const SinglePost = ({ onAddNewPost, isUserLoggedIn }) => {
+const SinglePost = ({ token, onAddNewPost, isUserLoggedIn }) => {
+  const [err, setErr] = useState(false);
+  const [postToken, setPostToken] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const params = useParams();
@@ -22,7 +24,7 @@ const SinglePost = ({ onAddNewPost, isUserLoggedIn }) => {
     eventHandlers,
     draggable,
     navigate,
-  } = useSetLocation(null, {
+  } = useSetLocation(token, null, {
     lat: center.lat,
     lng: center.lng,
   });
@@ -30,25 +32,38 @@ const SinglePost = ({ onAddNewPost, isUserLoggedIn }) => {
   useEffect(() => {
     const getPost = async () => {
       const response = await fetch(
-        `http://localhost:3001/posts/${params.postId}`
+        `http://localhost:3000/posts/${params.postId}`
       );
 
       const data = await response.json();
+      setPostToken(data.author);
       setFormData(data);
     };
     getPost();
   }, [params.postId, setFormData]);
 
   const askForDeleteHandler = () => {
-    setShowPopup(true);
+    if (token === postToken) {
+      setShowPopup(true);
+    } else {
+      setErr(true);
+    }
   };
 
   const cancleDeleteHandler = () => {
     setShowPopup(false);
   };
 
+  const editHandler = () => {
+    if (token === postToken) {
+      setEditMode(!editMode);
+    } else {
+      setErr(true);
+    }
+  };
+
   const deleteHandler = async () => {
-    await fetch(`http://localhost:3001/posts/${params.postId}`, {
+    await fetch(`http://localhost:3000/posts/${params.postId}`, {
       method: "DELETE",
     });
 
@@ -59,7 +74,7 @@ const SinglePost = ({ onAddNewPost, isUserLoggedIn }) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:3001/posts/${params.postId}`, {
+    fetch(`http://localhost:3000/posts/${params.postId}`, {
       method: "Put",
       headers: {
         "Content-Type": "Application/json",
@@ -84,7 +99,7 @@ const SinglePost = ({ onAddNewPost, isUserLoggedIn }) => {
         />
       )}
       <div className="cardHeader">
-        <h1 className="ui header">Single Post</h1>
+        <h1 className="ui header">{formData.fullName}'s Post</h1>
         <p>
           set your location in the app to show to another users, Click on Marker
           location and drag it.
@@ -93,18 +108,22 @@ const SinglePost = ({ onAddNewPost, isUserLoggedIn }) => {
       <div className="information-container">
         {isUserLoggedIn && (
           <div className="actions-container">
-            <button
-              className="edit-btn buttonStyle"
-              onClick={() => setEditMode(!editMode)}
-            >
-              Edit <i className="edit icon"></i>
-            </button>
-            <button
-              onClick={askForDeleteHandler}
-              className="delete-btn buttonStyle"
-            >
-              Delete<i className="trash alternate outline icon"></i>
-            </button>
+            <div className="btnContainer">
+              <button className="edit-btn buttonStyle" onClick={editHandler}>
+                Edit <i className="edit icon"></i>
+              </button>
+              <button
+                onClick={askForDeleteHandler}
+                className="delete-btn buttonStyle"
+              >
+                Delete<i className="trash alternate outline icon"></i>
+              </button>
+            </div>
+            {err && (
+              <p className="error">
+                You can only edit or delete your own posts
+              </p>
+            )}
           </div>
         )}
         <div className="map-container">
@@ -128,8 +147,8 @@ const SinglePost = ({ onAddNewPost, isUserLoggedIn }) => {
                 <Popup minWidth={90}>
                   <span onClick={toggleDraggable}>
                     {draggable
-                      ? 'Marker is draggable'
-                      : 'Click here to make marker draggable'}
+                      ? "Marker is draggable"
+                      : "Click here to make marker draggable"}
                   </span>
                 </Popup>
               )}
@@ -226,18 +245,18 @@ const SinglePost = ({ onAddNewPost, isUserLoggedIn }) => {
           ) : (
             <div className="post-details-container">
               <h3 className="ui dividing header">
-                <span className="headerSpan">Username: </span>{' '}
+                <span className="headerSpan">Username: </span>{" "}
                 {formData.fullName}
               </h3>
               <h4>
                 <span className="detailSpan">Address: </span> {formData.address}
               </h4>
               <h5>
-                <span className="detailSpan">Phone Number: </span>{' '}
+                <span className="detailSpan">Phone Number: </span>{" "}
                 {formData.phoneNumber}
               </h5>
               <p>
-                <span className="descriptionSpan">Description: </span>{' '}
+                <span className="descriptionSpan">Description: </span>{" "}
                 {formData.description}
               </p>
             </div>
