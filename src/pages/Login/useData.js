@@ -2,11 +2,7 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 
-export const useFormikdata = (
-  setIsUserLoggedIn,
-  setLoginError,
-  setButtonError
-) => {
+export const useFormikdata = (setToken, setLoginError, setButtonError) => {
   const [isloading, setIsloading] = useState(false);
   const navigate = useNavigate();
 
@@ -45,9 +41,11 @@ export const useFormikdata = (
       }).then((res) => {
         setIsloading(false);
         if (res.ok) {
-          setIsUserLoggedIn(true);
-          window.localStorage.setItem("isloggedIn", true);
-          navigate("/");
+          res.json().then((data) => {
+            setToken(data.accessToken);
+            window.localStorage.setItem("token", data.accessToken);
+            navigate("/");
+          });
         } else {
           return res.json().then((data) => {
             setLoginError(data);

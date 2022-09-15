@@ -14,23 +14,24 @@ const SetLocation = React.lazy(() => import("./pages/SetLocation/SetLocation"));
 function App() {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState([]);
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(
-    window.localStorage.getItem("isloggedIn")
-  );
+  const initialToken = localStorage.getItem("token");
+  const [token, setToken] = useState(initialToken);
   const [showPopup, setShowPopup] = useState(false);
 
-  const addNewPostHandler = (post) => {
-    setNewPost((prevPosts) => [post, ...prevPosts]);
-  };
+  const isUserLoggedIn = !!token;
 
   const askForLogout = () => {
     setShowPopup(true);
   };
 
   const logOutHandler = () => {
-    setIsUserLoggedIn(false);
-    window.localStorage.removeItem("isloggedIn");
+    setToken(null);
+    localStorage.removeItem("token");
     setShowPopup(false);
+  };
+
+  const addNewPostHandler = (post) => {
+    setNewPost((prevPosts) => [post, ...prevPosts]);
   };
 
   useEffect(() => {
@@ -70,7 +71,7 @@ function App() {
           path="/login"
           element={
             <Suspense fallback={<PageSkeleton />}>
-              <Login setIsUserLoggedIn={setIsUserLoggedIn} />
+              <Login setToken={setToken} />
             </Suspense>
           }
         />

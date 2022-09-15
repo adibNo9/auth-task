@@ -3,11 +3,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useFormikdata } from "./useData";
 
-const Login = ({ setIsUserLoggedIn }) => {
+const Login = ({ setToken }) => {
   const [loginError, setLoginError] = useState("");
   const [buttonError, setButtonError] = useState(false);
   const [formik, isloading] = useFormikdata(
-    setIsUserLoggedIn,
+    setToken,
     setLoginError,
     setButtonError
   );
@@ -83,7 +83,7 @@ const Login = ({ setIsUserLoggedIn }) => {
             LOGIN
           </button>
         ) : (
-          <div class="ui active centered inline loader"></div>
+          <div className="ui active centered inline loader"></div>
         )}
       </form>
     </div>

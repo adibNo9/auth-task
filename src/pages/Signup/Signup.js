@@ -139,7 +139,7 @@ const Signup = () => {
             Create account
           </button>
         ) : (
-          <div class="ui active centered inline loader"></div>
+          <div className="ui active centered inline loader"></div>
         )}
       </form>
     </div>
