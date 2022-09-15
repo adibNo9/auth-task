@@ -1,12 +1,13 @@
+import { useState } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 
 export const useFormikdata = (
-  users,
   setIsUserLoggedIn,
   setLoginError,
   setButtonError
 ) => {
+  const [isloading, setIsloading] = useState(false);
   const navigate = useNavigate();
 
   const validate = (values) => {
@@ -36,11 +37,13 @@ export const useFormikdata = (
     },
     validate,
     onSubmit: (values) => {
+      setIsloading(true);
       fetch("http://localhost:3000/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       }).then((res) => {
+        setIsloading(false);
         if (res.ok) {
           setIsUserLoggedIn(true);
           window.localStorage.setItem("isloggedIn", true);
@@ -55,5 +58,5 @@ export const useFormikdata = (
     },
   });
 
-  return formik;
+  return [formik, isloading];
 };

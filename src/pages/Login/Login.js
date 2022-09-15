@@ -3,11 +3,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useFormikdata } from "./useData";
 
-const Login = ({ users, setIsUserLoggedIn }) => {
+const Login = ({ setIsUserLoggedIn }) => {
   const [loginError, setLoginError] = useState("");
   const [buttonError, setButtonError] = useState(false);
-  const formik = useFormikdata(
-    users,
+  const [formik, isloading] = useFormikdata(
     setIsUserLoggedIn,
     setLoginError,
     setButtonError
@@ -76,12 +75,16 @@ const Login = ({ users, setIsUserLoggedIn }) => {
             )}
           </div>
         </div>
-        <button
-          className={`buttonStyle submitBtn ${buttonError && "shake"}`}
-          type="submit"
-        >
-          LOGIN
-        </button>
+        {!isloading ? (
+          <button
+            className={`buttonStyle submitBtn ${buttonError && "shake"}`}
+            type="submit"
+          >
+            LOGIN
+          </button>
+        ) : (
+          <div class="ui active centered inline loader"></div>
+        )}
       </form>
     </div>
   );
