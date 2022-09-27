@@ -11,6 +11,24 @@
       "password": "$2a$10$7klQYzh6AFeiKgf5D2Gdx.GGYR9q7VQi8QI1g0c/18JM7aaIjTmqW",
       "username": "adib",
       "id": 2
+    },
+    {
+      "email": "adib987@gmail.com",
+      "password": "$2a$10$E/Hw5zc1lFZkK6IgSc4LH.xJ57Ly5y.11Uq7QJK.6k2rP/lQ1I2tq",
+      "username": "adib",
+      "id": 3
+    },
+    {
+      "email": "adib9999@gmail.com",
+      "password": "$2a$10$5Pk1vaJ8SBoZkjYe7jKInOd1mWrvJ05dEhwOtFuRLjAKH9KZOa8am",
+      "username": "adib",
+      "id": 4
+    },
+    {
+      "email": "test@test123.com",
+      "password": "$2a$10$vsumySkFdNYt77hBHERHwO4aMDjAD2l/i5SLDDqFLdVBgat9unmIi",
+      "username": "test123",
+      "id": 5
     }
   ],
   "posts": [

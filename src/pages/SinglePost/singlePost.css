@@ -203,4 +203,8 @@
   .map-container {
     height: 25em;
   }
+  .form-container {
+    height: 33em;
+    margin-top: 65px !important;
+  }
 }

@@ -84,6 +84,7 @@ const SinglePost = ({ token, onAddNewPost, isUserLoggedIn }) => {
 
     onAddNewPost(formData);
     setEditMode(false);
+    navigate("/");
   };
 
   return (
