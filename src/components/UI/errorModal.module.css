@@ -1,9 +1,3 @@
-.card-container {
-  background-color: #fff;
-  box-shadow: 0 0 8px #10103c91;
-  border: 1px solid #10103c;
-}
-
 .backdrop {
   position: fixed;
   top: 0;
@@ -21,6 +15,9 @@
   width: 30%;
   z-index: 10000;
   overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0 8px #10103c91;
+  border: 1px solid #10103c;
 }
 
 .header-error {
@@ -42,7 +39,7 @@
   justify-content: flex-end !important;
 }
 
-.buttonStyle {
+.actions button {
   padding: 6px 20px;
   width: auto;
   font-weight: 600;
@@ -61,7 +58,7 @@
 .deleteBtn {
   color: #fff;
   background-color: #003041;
-  border:2px solid #003041;
+  border: 2px solid #003041;
 }
 
 .deleteBtn:hover {
@@ -74,7 +71,7 @@
   background-color: #fff;
   border: 2px solid #003041;
   color: #101010 !important;
-  margin-right: 5px!important;
+  margin-right: 5px !important;
 }
 
 .cancleBtn:hover {
